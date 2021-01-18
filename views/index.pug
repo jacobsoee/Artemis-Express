@@ -1,0 +1,61 @@
+include includes/header.pug
+head
+    link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/index.css")
+body
+    div(id="voresJumbotron" class="jumbotron text-center")
+        h1#velkom Velkommen til Artemis
+    .container
+        .row   
+            .col 
+                    #myCarousel.carousel.slide(data-ride='carousel')
+                        // Indicators
+                        ol.carousel-indicators
+                            li.active(data-target='#myCarousel' data-slide-to='0')
+                                each image, index in images
+                                    if index
+                                    li(data-target='#myCarousel' data-slide-to= index)
+                        div.carousel-inner
+                            .item.active
+                                img(id="sliderImage" src ="data:image/" + images[0].extension + ";base64," + images[0].encoded alt='Los Angeles' style='width:100%;')
+                                .carousel-caption 
+                                    h3#c1overskrift #{images[0].title}
+                                    p#c1beskrivelse #{images[0].description}
+                            each image, tal in images
+                                if tal
+                                    .item
+                                        img(id="sliderImage" src ="data:image/" + image.extension + ";base64," + image.encoded alt='Chicago' style='width:100%;')
+                                        .carousel-caption 
+                                            h3#cOverskrift #{image.title}
+                                            p#cBeskrivelse #{image.description}
+                        // Left and right controls
+                        a.left.carousel-control(href='#myCarousel' data-slide='prev')
+                            span.glyphicon.glyphicon-chevron-left
+                            span.sr-only Previous
+                        a.right.carousel-control(href='#myCarousel' data-slide='next')
+                            span.glyphicon.glyphicon-chevron-right
+                            span.sr-only Next
+                    br.sideFod
+                    .sideFod
+            .col    
+        .row
+            div(class="container my-5")
+                    div(class="col-md-6 mb-4")
+                        a(href="/gallery" class="card hoverable")
+                            div(class="card-body")
+                                div(class="media")
+                                    span(class="card-img-100 d-inline-flex justify-content-center align-items-center rounded-circle grey lighten-3 mr-4")
+                                        i(id="i1" class="fa fa-camera-retro fa-2x text-info")
+                                    div(class="media-body")
+                                        h3(class="dark-grey-text mb-3") Gå til galleriet
+                                        p(id="t1t" class="font-weight-light text-muted mb-0") Se vores produkter, og kontakt os hvis du er interesseret
+                    div(class="col-md-6 mb-4")
+                        a(href="/contact" class="card hoverable")
+                            div(class="card-body")
+                                div(class="media")
+                                    span(class="card-img-100 d-inline-flex justify-content-center align-items-center rounded-circle grey lighten-3 mr-4")
+                                        i(id="i2" class="fa fa-question-circle fa-2x purple-text")
+                                    div(class="media-body")
+                                        h3(class="dark-grey-text mb-3") Kontakt os
+                                        p(id="t2t" class="font-weight-light text-muted mb-0") Har du et spørgsmål omkring galleriet eller et af vores produkter, så kontakt os endelig!
+include includes/foot.pug

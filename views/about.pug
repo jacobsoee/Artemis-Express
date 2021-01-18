@@ -1,0 +1,88 @@
+include includes/header.pug
+html(lang='en')
+head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel="stylesheet", href="/stylesheets/about.css")
+body        
+    .wrapper    
+        .container
+            .row
+                .col-md-12.col-md
+                    .right-content-wrapper
+                        .right-img-n-text
+                            br
+                            .logo
+                                img(src="images/logo.jpg", alt="noget gik galt" style="width: 250px;")
+                            .right-text
+                                p Lorem ipsum dolor sit amet, odio fermentum aenean nunc pede, tincidunt sagittis dolor mauris cras velit ac. Dictum nisl parturient tempor at tempor. Id a nulla velit sed eros venenatis. Sollicitudin ut bibendum egestas volutpat, wisi reiciendis sit a ut. At vestibulum libero molestie ligula, et nullam sit vitae. Natoque in at lobortis leo quaerat aliquam. Sagittis nisl amet a nec risus, interdum vestibulum hendrerit nec quis vestibulum, vitae ultricies sit mauris volutpat egestas, massa eu gravida sollicitudin, nonummy et pharetra mi nulla non. Pellentesque eros, eget eros id gravida quisque neque vel.   
+                    hr
+            .row
+                .col-md-5
+                    .name
+                        h2 Lotte
+                    .left-img-n-text
+                        .img-content
+                            img(src="images/lotte.jpg", alt="noget gik galt")
+                        .text-content
+                            |Jeg hedder Lotte Danger Pedersen, er gift med Hans og har to (nu) voksne børn.
+                            |Jeg arbejder med keramik, billedkunst og er Diplom Kunstterapeut.
+                            |Jeg arbejder med keramik i skulpturelle former, både i stentøj og lertøj.
+                            |Jeg har siden 2001 signeret min kunst med Lope.
+                .col-md-5
+                    .name
+                        h2 Katharina
+                    .left-img-n-text
+                        .img-content
+                            img(src="images/mor_1.jpg", alt="noget gik galt")
+                        .text-content
+                            |Jeg arbejder med strukturer og farver. Især filt og garn er nogle af mine favoritter. Her fremstiller jeg blandt andet: skåle, vaser, figurer og smykker.
+
+                            |Uld er et fantastisk materiale at arbejde med. Uld og filtning er en ekstra dimension til at arbejde på lærreder med akryl og akvarel. På mange måder "maler" man med uld. Og det finder jeg vildt facinerende.
+                    hr
+            .row.infoContent
+                .col-md-4
+                        #googleMap(style='width:100%;height:300px;')
+                        script.
+                            function myMap() {
+                                let mapProp= {
+                                center: {lat: 55.46751, lng: 8.4543},
+                                zoom: 17,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                                scaleControl: false,
+                                mapTypeControl: false,
+                                zoomControl: true,
+                                fullscreenControl: true,
+                                };
+                                var map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
+                                let marker = new google.maps.Marker({
+                                    position: new google.maps.LatLng({lat: 55.46751, lng: 8.4543}),
+                                    map: map,
+                                    animation: google.maps.Animation.DROP,
+                                    title: 'Artemis'
+                                })
+                                }
+                        script(src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDmcD7_9xjRBveNV640MCsQQFxv1nNzTsM&callback=myMap' async)
+                .col-md-4
+                    h2 Artemis Galleri
+                    h4 Adresse
+                    p Danmarksgade 25, baghuset th.
+                    p 6700 Esbjerg
+                    h4 Telefon
+                    p 29 86 18 17
+                    h4 Email
+                    p kontakt@artemis.dk
+                .col-md-4   
+                    h2 Åbningstider    
+                    p Mandag  - 17-19
+                    p Tirsdag - Lukket
+                    p Onsdag  - 16-19
+                    p Torsdag - 16-19
+                    p Fredag  - Lukket
+                    p Lørdag  - Lukket
+                    p Søndag  - 14-18     
+include includes/foot.pug
+
+
+
+

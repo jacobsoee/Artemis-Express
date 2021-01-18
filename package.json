@@ -1,0 +1,51 @@
+{
+    "name": "artemis",
+    "version": "1.0.0",
+    "engines": {
+        "node": "12.14.1"
+    },
+    "description": "Projekt artemis",
+    "main": "app.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "start": "node app.js",
+        "test": "mocha",
+        "serve": "nodemon app.js"
+    },
+    "dependencies": {
+        "chai": "^4.2.0",
+        "chalk": "^4.0.0",
+        "express": "^4.17.1",
+        "express-session": "^1.17.1",
+        "firebase-admin": "^8.11.0",
+        "morgan": "^1.10.0",
+        "multer": "^1.4.2",
+        "nodemailer": "^6.4.6",
+        "nodemailer-plugin-inline-base64": "^2.1.1",
+        "path": "^0.12.7",
+        "pug": "^2.0.4",
+        "request": "^2.88.2",
+        "should": "^13.2.3",
+        "supertest": "^4.0.2"
+    },
+    "devDependencies": {
+        "mocha": "^7.1.2"
+    },
+    "scripts": {
+        "test": "mocha",
+        "serve": "nodemon app.js",
+        "start": "node app.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/JSChlein/Artemis.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/JSChlein/Artemis/issues"
+    },
+    "homepage": "https://github.com/JSChlein/Artemis#readme"
+}

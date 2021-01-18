@@ -1,0 +1,44 @@
+doctype html
+include includes/header.pug
+head
+  title Artemis
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" type="text/css" href="/stylesheets/slider.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+body
+  .wrapper
+    .container
+      div(id="voresJumbotron" class="jumbotron text-center")
+        h1 Slider
+      #myCarousel.carousel.slide(data-ride='carousel')
+        // Indicators
+        ol.carousel-indicators
+          li.active(data-target='#myCarousel' data-slide-to='0')
+            each image, index in images
+              if index
+              li(data-target='#myCarousel' data-slide-to= index)
+        div.carousel-inner
+          .item.active
+            img(id="sliderImage" src ="data:image/" + images[0].extension + ";base64," + images[0].encoded alt='Los Angeles' style='width:100%;')
+            .carousel-caption 
+                  h3#overskrift #{images[0].title}
+                  p#beskrivelse #{images[0].description}
+          each image, tal in images
+            if tal
+              .item
+                img(id="sliderImage" src ="data:image/" + image.extension + ";base64," + image.encoded alt='Chicago' style='width:100%;')
+                .carousel-caption 
+                  h3#overskrift #{image.title}
+                  p#beskrivelse #{image.description}
+        // Left and right controls
+        a.left.carousel-control(href='#myCarousel' data-slide='prev')
+          span.glyphicon.glyphicon-chevron-left
+          span.sr-only Previous
+        a.right.carousel-control(href='#myCarousel' data-slide='next')
+          span.glyphicon.glyphicon-chevron-right
+          span.sr-only Next
+    br.sideFod
+    .sideFod
+
+include includes/foot.pug

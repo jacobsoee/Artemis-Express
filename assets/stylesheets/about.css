@@ -1,0 +1,42 @@
+body {
+    margin: 0px;
+}
+
+.content-container {
+    display: grid;
+}
+
+.left-side {
+    display: flex;
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.img-content {
+    padding-right: 20px;
+}
+
+.left-img-n-text {
+    display: flex;
+}
+
+.right-content-side {
+    max-width: 500px;
+    padding-left: 150px;
+    border-left: solid black;
+}
+
+.infoContent {
+    margin-top: 10px;
+    margin-bottom: 40px;
+    background-color: #f0f2f0;
+    border-radius: 10px;
+}
+
+#googleMap {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}

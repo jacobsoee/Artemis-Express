@@ -1,0 +1,32 @@
+#showImage {
+    width: 500px;
+    height: 400px;
+}
+
+.checkbox.inline.checkboxLabel,
+.checkbox.inline.checkboxLabel+.checkbox.inline.checkboxLabel {
+    margin-left: 0 !important;
+    margin-right: 10px !important;
+}
+
+.checkbox.inline.checkboxLabel:last-child {
+    margin-right: 0 !important;
+}
+
+.checkbox.inline.checkBoxLabel:first-child {
+    margin-left: 10px !important;
+}
+
+#submitKnap {
+    border-radius: 3px;
+    font-size: 2.3rem;
+    height: 50px;
+    width: 100px;
+    background-color: rgb(30, 138, 138);
+}
+
+#submitKnap:hover {
+    height: 51px;
+    width: 101px;
+    background-color: rgb(41, 161, 161);
+}

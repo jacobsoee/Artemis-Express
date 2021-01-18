@@ -1,0 +1,24 @@
+link#bootstrap-css(href='//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css' rel='stylesheet')
+link(rel="stylesheet" type="text/css" href="/stylesheets/404.css")
+script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js')
+script(src='//code.jquery.com/jquery-1.11.1.min.js')
+// ---- Include the above in your HEAD tag --------
+include includes/header.pug
+.wrapper
+    .container
+     .row
+        .col-md-12
+        .error-template
+            h1 Ups!
+            h2.text
+            | Fejl 404 - Siden kan ikke findes
+            .error-details
+            | Vi beklager, der er opstået en fejl!
+            .error-actions
+            a#hjemKnap.btn.btn-primary.btn-lg(href='/')
+                span.glyphicon.glyphicon-home
+                |                         Til Forside
+            a#supportKnap.btn.btn-default.btn-lg(href='/contact')
+                span.glyphicon.glyphicon-envelope
+                |  Kontakt Support
+include includes/foot.pug

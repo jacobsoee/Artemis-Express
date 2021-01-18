@@ -1,0 +1,32 @@
+include includes/header.pug
+head
+    link(rel="stylesheet" type="text/css" href="/stylesheets/contact-styles.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+body
+    .wrapper
+        .container
+            if receiver
+                h4 Modtager: #{receiver}
+            form(action='/contactform', method='POST')
+                label(for="navn") Navn *
+                input(type="text" class="input" name="navn" placeholder="Dit fulde navn" required)
+
+                label(for="email") Email *
+                input(type="email" class="input" name="email" placeholder="Din email" required)
+
+                label(for="category") Kategori
+                select(name='category', id='category' required)
+                    each val in ['Købsforespørgsel' , 'Feedback' , 'Klage' , 'Andet']
+                        option=val
+
+                label(for="topic") Emne
+                input(type="text" class="input" name="topic" placeholder="Overskrift" required)
+                input(name="artistEmail" value=email hidden)
+                input(name="imageTitle" value=imageTitle hidden)
+                input(name="imageDocId" value=imageDocId hidden)
+
+                label(for="text") Beskrivelse
+                textarea(id="text" name="text" placeholder="Skriv noget..." style="height:200px")
+
+                input(type="submit" class="submit" value="Send")
+include includes/foot.pug

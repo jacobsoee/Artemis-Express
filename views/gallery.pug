@@ -1,0 +1,48 @@
+include includes/header.pug
+link(rel="stylesheet" type="text/css" href="/stylesheets/gallery.css")
+
+body
+    .wrapper
+        .container-fluid
+            h1.text-center Artemis Galleri
+            .row
+                .col-md-4.col-md-offset-4
+                    form(name="tagsForm" action="/user/billeder" method="post" class="checkboxForm")
+                        label.checkbox-inline(for="tags") Keramik
+                            span
+                            input.custom-control-input(type="checkbox" name="tags" value="Keramik")
+                        label.checkbox-inline(for="tags") Maleri
+                            span
+                            input(type="checkbox"  name="tags" value="Maleri")
+                        label.checkbox-inline(for="tags") Stof
+                            span
+                            input(type="checkbox"  name="tags" value="Stof")
+                        label.checkbox-inline(for="tags") Farve
+                            span
+                            input(type="checkbox"  name="tags" value="Farve")
+                        label.checkbox-inline(for="tags") Glaskunst
+                            span
+                            input(type="checkbox"  name="tags" value="Glaskunst")
+                        br
+                        .buttonholder
+                            button.btn.btn-primary(type="submit") Filtrer
+            .row
+                div(class="gallery" id="gallery")
+                    each image, index in images
+                        div(class="mb-3 pics animation all 1")
+                            img(class="rounded" src="data:image/" + image.extension + ";base64," + image.encoded title=image.title alt=image.description data-user=image.user data-docId=image.docId)
+                                
+                div(id="popUp" class="modal")
+                    span(id="close") X
+                    img(class="popUp-content" id="img01")
+                    div(id="caption")
+                    div(id="imgText")
+                    div(id="artistName")
+                    form(action="/gallery" method="post")
+                        input(id="imgUser" name ="imageUser" hidden)
+                        input(id="imgdocId" name ="imageDocId" hidden)
+                        input(id="imgTitle" name ="imageTitle" hidden)
+                        button#kontaktKnap(type="submit") Kontakt Kunstner
+                    script
+                        include ../assets/scripts/gallery.js
+include includes/foot.pug

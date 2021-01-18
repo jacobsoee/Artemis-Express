@@ -1,0 +1,37 @@
+#lilleBillede {
+    width: 130px;
+    height: 130px;
+}
+
+#knap {
+    margin: 5px;
+}
+
+.wrapper {
+    min-height: 100% !important;
+}
+
+.navninput {
+    margin-top: 50px !important;
+    margin: 5px
+}
+
+.emailinput {
+    margin-top: 50px !important;
+    margin: 5px
+}
+
+#opdaterknap {
+    margin-top: 50px !important;
+    margin: 5px
+}
+
+#myInput {
+    width: 130px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+#myInput:focus {
+    width: 180px;
+}

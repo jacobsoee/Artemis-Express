@@ -1,0 +1,101 @@
+include includes/header.pug
+head
+  title Billede Administration
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/admin.css")
+
+body
+  .wrapper
+    .container
+      if images
+        div.col-xs-2
+          input#myInput.form-control(type='text' placeholder='Søg..')
+        br
+        table.table.table-hover
+          thead
+            tr
+              th Billede
+              th Titel
+              th Beskrivelse
+              th Tags
+              th Dato
+              th Slet/Rediger
+          tbody#myTable
+              each image, index in images
+                tr
+                  td
+                    img#lilleBillede(src ="data:image/" + image.extension + ";base64," + image.encoded)
+                  td #{image.title}
+                  td #{image.description}
+                  td #{image.tags}
+                  td(class="dato") #{image.dateCreated}
+                  td
+                    button#knap(type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteModal" + index)
+                      span(class="glyphicon glyphicon-trash")
+                    button#knap(type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#editModal" + index)
+                      span(class="glyphicon glyphicon-pencil")
+                    div(id="deleteModal" + index class="modal fade" role='dialog')
+                      .modal-dialog.modal-sm
+                        .modal-content
+                          .modal-header
+                            button.close(type='button' data-dismiss='modal') &times;
+                            h4.modal-title Vil du slette dette billede?
+                          .modal-body
+                            p Er du sikker på at du vil slette dette billede med titlen: #{images[index].title}?
+                          .modal-footer
+                            form(action='/user/admin/delete' method='post')
+                                input(name="deleteDocId" value=image.docId style="display: none;")
+                                button.btn.btn-default(type='submit') Slet billede
+                                button.btn.btn-default(type='button' data-dismiss='modal') Luk
+                    div(id="editModal" + index class="modal fade" role='dialog')
+                      .modal-dialog.modal-sm
+                        .modal-content
+                          .modal-header
+                            button.close(type='button' data-dismiss='modal') &times;
+                            h4.modal-title Rediger billede.
+                          .modal-body
+                            form(action='/user/admin/edit' method='POST' id="editForm" + index)
+                                input(name="docId" value=image.docId style="display: none;")
+                                label(for='fname') Title
+                                br
+                                input#fname(type='text' name='ftitle' value=images[index].title)
+                                br
+                                label(for='lname') Beskrivelse
+                                br
+                                textarea(name="fdescription" cols="30" rows="10" style="resize: none;" ) #{images[index].description}
+                          .modal-footer    
+                                button.btn.btn-default.pull-right(type='button' data-dismiss='modal') Luk
+                                button.btn.btn-default.pull-right(type='submit' form="editForm" + index) Opdater
+      unless images
+        p Ingen billeder fundet.
+        table.table.table-hover
+          thead
+            tr
+              th Billede
+              th Titel
+              th Beskrivelse
+              th Dato
+              th Slet/Rediger
+          tbody
+                tr
+                  td
+                  td 
+                  td 
+                  td
+                  td    
+
+script
+    include ../assets/scripts/date.js
+
+script.
+            $(document).ready(function(){
+              $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                  $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+              });
+            });
+include includes/foot.pug

@@ -1,0 +1,48 @@
+.carouselJumbotron {
+    background-color: whitesmoke;
+}
+
+.sideFod {
+    margin: 30px;
+}
+
+#sliderImage {
+    width: 600px;
+    height: 800px;
+}
+
+#cOverskrift {
+    font-family: Tahoma;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#cBeskrivelse, #c1overskrift {
+    font-family: Tahoma;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+.carouselJumbotron, #c1beskrivelse {
+    width: 100%;
+}
+
+#i1, #i2 {
+    font-size: 100px;
+}
+
+#h31, #h32 {
+    font-size: 50px;
+    color: black;
+}
+
+#t1t, #t2t {
+    font-size: 30px;
+}
+
+#velkom {
+    font-size: 100px;
+}
+]

@@ -1,0 +1,58 @@
+include includes/header.pug
+head
+  title Account Administration
+  meta(charset='utf-8')
+  meta(name='viewport' content='width=device-width, initial-scale=1')
+  link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+  link(rel="stylesheet" type="text/css" href="/stylesheets/admin.css")
+body
+  .wrapper
+    .container
+      .row
+        .col-md-7
+          table.table.table-hover
+              thead
+                tr
+                  th Navn
+                  th Email
+                  th Telefonnummer
+                  th Slet
+              tbody
+                each user, index in users
+                  tr
+                    td #{user.username}
+                    td #{user.email}
+                    td #{user.phone}
+                    td
+                      button#knap(type="button" class="btn btn-default btn-sm" data-toggle="modal" data-target="#deleteModal" + index)
+                        span(class="glyphicon glyphicon-trash")
+                      div(id="deleteModal" + index class="modal fade" role='dialog')
+                        .modal-dialog.modal-sm
+                          .modal-content
+                            .modal-header
+                              button.close(type='button' data-dismiss='modal') &times;
+                              h4.modal-title Slet bruger #{users[index].username}
+                            .modal-body
+                              p Er du sikker på at du vil slette denne bruger?
+                            .modal-footer
+                              form(action='/user/accounts/delete' method='post')
+                                  input(name="deleteDocId" value=user.docId style="display: none;")
+                                  br
+                                  button.btn.btn-default(type='submit') Slet
+                                  button.btn.btn-default(type='button' data-dismiss='modal') Close
+        .col-md-5                      
+          h3 Opret ny bruger i systemet
+          br
+          form.form-horizontal(action='/user/accounts' method="post" )
+              .form-group
+                  label.control-label.col-sm-2(for='email') Username:
+                  .col-sm-10
+                      input.form-control(name="username" type='text' placeholder=' ' autocomplete="off")
+              .form-group
+                  label.control-label.col-sm-2(for='pwd') Password:
+                  .col-sm-10
+                      input.form-control(name ="pwd" type='text' placeholder=' ' autocomplete="off")
+              .form-group
+                  .col-sm-offset-2.col-sm-10
+                      button.btn.btn-default(type='submit') Opret
+include includes/foot.pug

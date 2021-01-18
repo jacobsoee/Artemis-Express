@@ -1,0 +1,231 @@
+.gallery {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+    -webkit-column-width: 33%;
+    -moz-column-width: 33%;
+    column-width: 33%;
+}
+
+.gallery .pics {
+    -webkit-transition: all 350ms ease;
+    transition: all 350ms ease;
+}
+
+.gallery .animation {
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+}
+
+@media (max-width: 450px) {
+    .gallery {
+        -webkit-column-count: 1;
+        -moz-column-count: 1;
+        column-count: 1;
+        -webkit-column-width: 100%;
+        -moz-column-width: 100%;
+        column-width: 100%;
+    }
+}
+
+@media (max-width: 400px) {
+    .btn.filter {
+        padding-left: 1.1rem;
+        padding-right: 1.1rem;
+    }
+}
+
+
+/* billedet der bruges til modal */
+
+.rounded {
+    max-width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 10px;
+}
+
+.rounded:hover {
+    opacity: 0.7;
+}
+
+.checkboxForm label {
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    padding: 0px;
+}
+
+.checkboxForm span {
+    padding-left: 22px;
+}
+
+.checkboxForm {
+    text-align: center;
+}
+
+.buttonholder {
+    text-align: center;
+    margin-top: 5px;
+}
+
+.checkboxForm input:checked {
+    background: black !important;
+}
+
+
+/* Modal (background) */
+
+.modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.9);
+    /* Black w/ opacity */
+}
+
+
+/* Modal content(billedet) */
+
+.popUp-content {
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 700px;
+    max-width: 700px;
+}
+
+
+/* Titel til modal tekst - Samme bredde som billedet */
+
+#caption {
+    font-size: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 90px;
+}
+
+#imgText {
+    font-size: 25px;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: left;
+    left: 150;
+    color: #ccc;
+    padding: 5px 0;
+}
+
+#artistName {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: left;
+    left: 150;
+    color: #ccc;
+    padding: 5px 0;
+}
+
+#kontaktKnap {
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    text-align: left;
+    left: 150;
+    padding: 5px 0;
+    background-color: #60d8f6;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    font-size: 16px;
+    opacity: 0.6;
+    transition: 0.3s;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+#kontaktKnap:hover {
+    opacity: 1;
+    color: #2d2d30;
+}
+
+
+/* Zoom-in animation på Modal */
+
+.popUp-content,
+#caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+    from {
+        transform: scale(0)
+    }
+    to {
+        transform: scale(1)
+    }
+}
+
+
+/* Close button */
+
+#close {
+    position: absolute;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+#close:hover,
+#close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.checkboxes,
+.artemisHead {
+    padding: 50px;
+}
+
+
+/* mobil medie til modal*/
+
+@media only screen and (max-width: 700px) {
+    .modal-content {
+        width: 100%;
+    }
+}

@@ -1,0 +1,26 @@
+body {
+    background-color: whitesmoke;
+}
+
+.sideFod {
+    margin: 30px;
+}
+
+#sliderImage {
+    width: 600px;
+    height: 800px;
+}
+
+#overskrift {
+    font-family: Tahoma;
+    font-size: 40px;
+    color: #fff;
+    text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+
+#beskrivelse {
+    font-family: Tahoma;
+    font-size: 20px;
+    color: #fff;
+    text-shadow: 3px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}

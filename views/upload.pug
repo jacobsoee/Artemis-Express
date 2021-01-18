@@ -1,0 +1,64 @@
+include includes/header.pug
+html(lang='en')
+head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(http-equiv='X-UA-Compatible', content='ie=edge')
+    link(rel="stylesheet" type="text/css" href="/stylesheets/styles.css")
+    link(rel="stylesheet" type="text/css" href="/stylesheets/upload.css")
+    script( type="text/javascript" src='/scripts/upload.js')
+    title Node File Uploads
+body
+    .wrapper
+        .container
+                h1 Upload Billede
+                if msg
+                    h3 #{msg}
+                form.md-form(name="uploadForm" action='/user/upload', method='post', enctype='multipart/form-data')
+                    .row
+                        .col-md-6
+                            .file-field
+                            .z-depth-1-half.mb-4
+                                img#showImage.img-fluid(src='https://wtwp.com/wp-content/uploads/2015/06/placeholder-image.png' alt='example placeholder')
+                                .d-flex.justify-content-center
+                                .btn.btn-mdb-color.btn-rounded.float-left
+                                span Vælg billede
+                                input(name='myImage' type='file' onchange="readURL(this);" accept="image/x-png,image/gif,image/jpeg" required)
+                        .col-md-5-offset
+                                p Titel
+                                input(type='text' name='title' placeholder='Titel' required)
+                                br
+                                br
+                                p Beskrivelse
+                                textarea(name="description", cols="45", rows="10" required style="resize: none;" placeholder="Beskrivelse")
+                                br
+                                label.checkbox-inline.checkboxLabel
+                                    input(type='checkbox' name="tags" value='Keramik')
+                                    | Keramik
+                                label.checkbox-inline.checkboxLabel
+                                    input(type='checkbox' name="tags" value='Maleri')
+                                    | Maleri
+                                label.checkbox-inline.checkboxLabel
+                                    input(type='checkbox' name="tags" value='Stof')
+                                    | Stof
+                                label.checkbox-inline.checkboxLabel
+                                    input(type='checkbox' name="tags" value='Farve')
+                                    | Farve
+                                label.checkbox-inline.checkboxLabel
+                                    input(type='checkbox' name="tags" value='Glaskunst')
+                                    | Glaskunst
+                                br
+                                if session.username == "admin"
+                                    
+                                    select.form-control.mr-sm-2(name="selectUser" id="selectUser" style="width: 200px; margin-top: 5px;")
+                                        option(name="default") Vælg bruger
+                                            each user, index in users
+                                                option(value=user.username) #{user.username}
+                    .row 
+                        hr
+                        .col-md-4.col-md-offset-4
+                                button#submitKnap.btn-primary(type='submit' style="margin-top: 10px;") Upload
+include includes/foot.pug
+
+        
+            
